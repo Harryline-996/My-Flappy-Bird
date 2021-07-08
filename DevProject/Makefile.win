@@ -1,0 +1,58 @@
+# Project: Our Flapper Bird
+# Makefile created by Dev-C++ 5.8.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../libgraphics/exceptio.o ../libgraphics/genlib.o ../libgraphics/graphics.o ../libgraphics/random.o ../libgraphics/simpio.o ../libgraphics/strlib.o ../simpleGUI/imgui.o "../Source\ Files/flappy\ bird.o" "../Source\ Files/draw.o" "../Source\ Files/event.o" "../Source\ Files/file.o"
+LINKOBJ  = ../libgraphics/exceptio.o ../libgraphics/genlib.o ../libgraphics/graphics.o ../libgraphics/random.o ../libgraphics/simpio.o ../libgraphics/strlib.o ../simpleGUI/imgui.o "../Source Files/flappy bird.o" "../Source Files/draw.o" "../Source Files/event.o" "../Source Files/file.o"
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"../libgraphics" -I"../simpleGUI" -I"../Source Files"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++" -I"../libgraphics" -I"../simpleGUI" -I"../Source Files"
+BIN      = "Our Flappy Bird.exe"
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../libgraphics/exceptio.o: ../libgraphics/exceptio.c
+	$(CC) -c ../libgraphics/exceptio.c -o ../libgraphics/exceptio.o $(CFLAGS)
+
+../libgraphics/genlib.o: ../libgraphics/genlib.c
+	$(CC) -c ../libgraphics/genlib.c -o ../libgraphics/genlib.o $(CFLAGS)
+
+../libgraphics/graphics.o: ../libgraphics/graphics.c
+	$(CC) -c ../libgraphics/graphics.c -o ../libgraphics/graphics.o $(CFLAGS)
+
+../libgraphics/random.o: ../libgraphics/random.c
+	$(CC) -c ../libgraphics/random.c -o ../libgraphics/random.o $(CFLAGS)
+
+../libgraphics/simpio.o: ../libgraphics/simpio.c
+	$(CC) -c ../libgraphics/simpio.c -o ../libgraphics/simpio.o $(CFLAGS)
+
+../libgraphics/strlib.o: ../libgraphics/strlib.c
+	$(CC) -c ../libgraphics/strlib.c -o ../libgraphics/strlib.o $(CFLAGS)
+
+../simpleGUI/imgui.o: ../simpleGUI/imgui.c
+	$(CC) -c ../simpleGUI/imgui.c -o ../simpleGUI/imgui.o $(CFLAGS)
+
+"../Source\ Files/flappy\ bird.o": ../Source\ Files/flappy\ bird.c
+	$(CC) -c "../Source Files/flappy bird.c" -o "../Source Files/flappy bird.o" $(CFLAGS)
+
+"../Source\ Files/draw.o": ../Source\ Files/draw.c
+	$(CC) -c "../Source Files/draw.c" -o "../Source Files/draw.o" $(CFLAGS)
+
+"../Source\ Files/event.o": ../Source\ Files/event.c
+	$(CC) -c "../Source Files/event.c" -o "../Source Files/event.o" $(CFLAGS)
+
+"../Source\ Files/file.o": ../Source\ Files/file.c
+	$(CC) -c "../Source Files/file.c" -o "../Source Files/file.o" $(CFLAGS)
